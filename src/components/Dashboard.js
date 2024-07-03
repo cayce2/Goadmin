@@ -9,10 +9,10 @@ const user = {
 }
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
+  { name: 'Users', href: '#', current: false },
   { name: 'Projects', href: '#', current: false },
   { name: 'Calendar', href: '#', current: false },
-  { name: 'Reports', href: '#', current: false },
+  { name: 'Settings', href: '#', current: false },
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
@@ -20,6 +20,28 @@ const userNavigation = [
   { name: 'Sign out', href: '#' },
 ]
 
+const stats = [
+  { label: 'Waiyaki Way', value: '10' },
+  { label: 'Ngong Road', value: '10' },
+  { label: 'Jogoo Road', value: '10' },
+  { label: 'Thika Road', value: '10' },
+  { label: 'Mombasa Road', value: '10' },
+  { label: 'Lower Kabete', value: '10' },
+  { label: 'Total', value: '10' },
+]
+
+const data = [
+  {
+    id: 'AAPSOL',
+    company: 'Chase & Co.',
+    stock: 'CAC',
+    commission: '+$4.37',
+    price: '$3,509.00',
+    quantity: '12.00',
+    netAmount: '$4,397.00',
+  },
+  // ... other transaction data ...
+];
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -27,19 +49,11 @@ function classNames(...classes) {
 export default function Example() {
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
-      <div className="min-h-full">
+      <div className="min-h-full w-full">
         <Disclosure as="nav" className="bg-gray-800">
           {({ open }) => (
             <>
-              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div className="flex items-center justify-between h-16">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
@@ -153,6 +167,56 @@ export default function Example() {
           )}
         </Disclosure>
       </div>
+      <div className="bg-white py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-7 gap-6">
+          {stats.map((stat) => (
+            <div key={stat.label} className="bg-gray-50 p-6 rounded-lg shadow-md">
+              <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
+              <p className="mt-2 text-sm font-medium text-gray-500">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div className="bg-white rounded-lg shadow-md p-4">
+      <table className="w-full">
+        <thead>
+          <tr>
+            <th>Transaction ID</th>
+            <th>Company</th>
+            <th>Stock</th>
+            <th>Commission</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Net amount</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((transaction) => (
+            <tr key={transaction.id}>
+              <td>{transaction.id}</td>
+              <td>{transaction.company}</td>
+              <td>{transaction.stock}</td>
+              <td>{transaction.commission}</td>
+              <td>{transaction.price}</td>
+              <td>{transaction.quantity}</td>
+              <td>{transaction.netAmount}</td>
+              <td>
+                <button className="text-blue-500">Edit</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded">
+        Export
+      </button>
+    </div>
+  
+
     </>
   )
 }
