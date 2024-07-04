@@ -182,7 +182,7 @@ export default function Example() {
     </div>
 
     <div className="bg-white rounded-lg shadow-md p-4">
-      <table className="w-full">
+      <table className="w-auto">
         <thead>
           <tr>
             <th>Transaction ID</th>

@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Dashboard from "./components/Dashboard";
+import Calendar from "./pages/calender"
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
      
         <Routes>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<Calendar />} />
         </Routes>
 
     </BrowserRouter>
