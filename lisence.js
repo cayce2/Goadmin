@@ -1,7 +1,12 @@
+To enable proper redirection for the `navigation` links in your React component, you should use the `Link` component from `react-router-dom`. This will ensure that your navigation works seamlessly with client-side routing in a React application.
+
+Here's the updated code with proper routing:
+
+```jsx
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 const user = {
   name: 'Tom Cook',
@@ -9,7 +14,6 @@ const user = {
   imageUrl:
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 };
-
 const navigation = [
   { name: 'Dashboard', path: '/dashboard', current: true },
   { name: 'Users', path: '/users', current: false },
@@ -17,7 +21,6 @@ const navigation = [
   { name: 'Calendar', path: '/calendar', current: false },
   { name: 'Settings', path: '/settings', current: false },
 ];
-
 const userNavigation = [
   { name: 'Your Profile', path: '/profile' },
   { name: 'Settings', path: '/settings' },
@@ -46,34 +49,13 @@ const data = [
   },
   // ... other transaction data ...
 ];
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-function Dashboard() {
-  return <div>Dashboard Page</div>;
-}
-
-function Users() {
-  return <div>Users Page</div>;
-}
-
-function Projects() {
-  return <div>Projects Page</div>;
-}
-
-function Calendar() {
-  return <div>Calendar Page</div>;
-}
-
-function Settings() {
-  return <div>Settings Page</div>;
-}
-
 export default function Example() {
   return (
-    <Router>
+    <>
       <div className="min-h-full w-full">
         <Disclosure as="nav" className="bg-gray-800">
           {({ open }) => (
@@ -198,4 +180,24 @@ export default function Example() {
             {stats.map((stat) => (
               <div key={stat.label} className="bg-gray-50 p-6 rounded-lg shadow-md">
                 <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
-                <p className="mt-2 text-sm font-medium
+                <p className="mt-2 text-sm font-medium text-gray-500">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-lg shadow-md p-4">
+        <table className="w-auto">
+          <thead>
+            <tr>
+              <th>Transaction ID</th>
+              <th>Company</th>
+              <th>Stock</th>
+              <th>Commission</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Net amount</th>
+              <th>Edit</th>
+            </tr>
+         
