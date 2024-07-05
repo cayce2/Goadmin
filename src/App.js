@@ -1,14 +1,20 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Dashboard from './components/Dashboard'
-import Calendar from './pages/calender';
+import Navbar from './components/Navbar';
+import Dashboard from './pages/Dashboard';
+import Users from './pages/Users';
+import Settings from './pages/Settings';
+
 
 function App() {
+    
     return (
         <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/" element={<Navbar />} />
+                    <Route path="/navbar" element={<Navbar />} />
                     <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/calendar" element={<Calendar />} />                 
+                    <Route path="/Users" element={<Users />} />
+                    <Route path="/settings" element={<Settings />} />
                 </Routes>
         </BrowserRouter>
     );
