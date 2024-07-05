@@ -11,7 +11,7 @@ const Sidebar = () => {
                 <ul>
                     <li className="p-4 hover:bg-gray-700"><Link to="/dashboard">Dashboard</Link></li>
                     <li className="p-4 hover:bg-gray-700"><Link to="/users">Users</Link></li>
-                    <li className="p-4 hover:bg-gray-700"><Link to="/domains">Domains</Link></li>
+                    <li className="p-4 hover:bg-gray-700"><Link to="/calendar">Calendar</Link></li>
                     <li className="p-4 hover:bg-gray-700"><Link to="/settings">Settings</Link></li>
                 </ul>
             </nav>

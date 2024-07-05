@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/dashboard'
 import Users from './pages/Users';
+import Calendar from './pages/calendar'
 
 
-const Domains = () => <div>Domains</div>;
 const Settings = () => <div>Settings</div>;
 
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
                     <Route path="/" element={<Dashboard />} />
                         <Route path="/dashboard" element={<Dashboard />} />
                         <Route path="/users" element={<Users />} />
-                        <Route path="/domains" element={<Domains />} />
+                        <Route path="/calendar" element={<Calendar />} />
                         <Route path="/settings" element={<Settings />} />
                     </Routes>
                 </div>
