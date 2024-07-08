@@ -4,9 +4,9 @@ import Sidebar from './components/Sidebar';
 import Dashboard from './pages/dashboard'
 import Users from './pages/Users';
 import Calendar from './pages/calendar'
+import Settings from './pages/Settings'
 
 
-const Settings = () => <div>Settings</div>;
 
 const App = () => {
     return (

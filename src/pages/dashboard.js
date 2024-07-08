@@ -29,8 +29,8 @@ const Stats = () => {
   };
 
   return (
-    <div>
-      <div className="flex justify-around items-center bg-gray-100 p-2 rounded-md shadow-md flex-wrap mt-4">
+    <div className="container mx-auto p-4">
+      <div className="flex flex-wrap justify-around items-center bg-gray-100 p-2 rounded-md shadow-md mt-4">
         {stats.map((stat, index) => (
           <React.Fragment key={stat.id}>
             <div className="text-center m-4">
@@ -43,7 +43,7 @@ const Stats = () => {
           </React.Fragment>
         ))}
       </div>
-      <div className="flex justify-between items-center bg-gray-100 p-2 rounded-md shadow-md mt-4">
+      <div className="flex flex-wrap justify-between items-center bg-gray-100 p-2 rounded-md shadow-md mt-4">
         <div>
           <h2 className="text-lg font-bold">Bookings</h2>
         </div>
@@ -57,7 +57,7 @@ const Stats = () => {
           <Calendar value={date} onChange={(e) => setDate(e.value)} placeholder="Select Date" />
         </div>
       </div>
-      <div className="flex justify-around items-center bg-gray-100 p-2 rounded-md shadow-md flex-wrap">
+      <div className="bg-gray-100 p-2 rounded-md shadow-md mt-4 overflow-auto">
         <div className="w-full p-2 rounded-lg border border-gray-300">
           <table className="w-full border-collapse">
             <thead>
