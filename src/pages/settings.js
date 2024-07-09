@@ -2,14 +2,8 @@ import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 
 export default function Example() {
   return (
-    <div className="flex">
-      <div className="fixed h-full w-1/4 p-4 bg-gray-100">
-        {/* Sidebar content */}
-        <div className="text-lg font-semibold">Sidebar</div>
-        {/* Add your sidebar links or content here */}
-      </div>
 
-      <div className="ml-1/4 w-3/4 p-8 overflow-y-auto">
+    <div style={{ height: '800px', overflow: 'scroll' }}>
         <form>
           <div className="space-y-12">
             <div className="border-b border-gray-900/10 pb-12">
@@ -149,6 +143,5 @@ export default function Example() {
           </div>
         </form>
       </div>
-    </div>
   )
 }
