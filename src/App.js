@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/dashboard'
-import Users from './pages/Users';
+import Users from './pages/users';
 import Calendar from './pages/calendar'
-import Settings from './pages/Settings'
+import Settings from './pages/settings'
 
 
 
