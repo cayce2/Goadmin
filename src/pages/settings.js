@@ -1,10 +1,8 @@
 import { useRef } from 'react';
-import { useScroll } from 'react-use';
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid';
 
-export default function Example() {
+export default function Settings() {
   const ref = useRef(null);
-  const { x, y } = useScroll(ref);
+
 
   return (
     <div style={{ height: '800px', overflow: 'scroll' }} ref={ref}>
