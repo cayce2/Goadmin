@@ -15,7 +15,6 @@ const App = () => {
                 <Sidebar />
                 <div className="flex-1 p-10">
                     <Routes>
-                    
                         
                         <Route path="/users" element={<Users />} />
                         <Route path="/calendar" element={<Calendar />} />
