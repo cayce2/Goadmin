@@ -1,5 +1,6 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import Dashboard from '../pages/dashboard'
 
 const user = {
   name: 'Tom Cook',
@@ -164,7 +165,7 @@ export default function Navbar() {
           </div>
         </header>
         <main className="w-full">
-          <div className="w-full px-4 py-6 sm:px-6 lg:px-8">{/* Your content */}</div>
+          <div className="w-full px-4 py-6 sm:px-6 lg:px-8">{<Dashboard />}</div>
         </main>
       </div>
     </>

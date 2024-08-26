@@ -19,37 +19,9 @@ const Stats = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Full-width navbar */}
-      <nav className="bg-gray-800 text-white w-full p-4">
-        <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Your App Name</h1>
-          <div>
-            {/* Add any navigation items here */}
-            <a href="#" className="px-3 py-2 rounded hover:bg-gray-700">Home</a>
-            <a href="#" className="px-3 py-2 rounded hover:bg-gray-700">About</a>
-            <a href="#" className="px-3 py-2 rounded hover:bg-gray-700">Contact</a>
-          </div>
-        </div>
-      </nav>
-
       {/* Main content */}
       <div className="flex-grow bg-gray-100">
         <div className="container mx-auto p-4">
-          {/* Stats section */}
-          <div className="flex flex-wrap justify-around items-center bg-white p-2 rounded-md shadow-md mt-4">
-            {stats.map((stat, index) => (
-              <React.Fragment key={stat.id}>
-                <div className="text-center m-4">
-                  <h2 className="text-2xl font-bold">{stat.value}</h2>
-                  <p className="text-gray-600">{stat.name}</p>
-                </div>
-                {index < stats.length - 1 && (
-                  <div className="w-px h-16 bg-gray-300 mx-4"></div>
-                )}
-              </React.Fragment>
-            ))}
-          </div>
-
           {/* Bookings header */}
           <div className="flex flex-wrap justify-between items-center bg-white p-2 rounded-md shadow-md mt-4">
             <div>
