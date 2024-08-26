@@ -34,7 +34,7 @@ export default function Navbar() {
               <div className="flex items-center">
                 <div className="flex-shrink-0">
                   <img
-                    alt="Your Company"
+                    alt="GOCAL|ADMIN"
                     src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                     className="h-8 w-8"
                   />
