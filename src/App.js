@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/navbar';
 //import Dashboard from './pages/dashboard'
-import Users from './pages/users';
+import Users from './pages/Users';
 import Calendar from './pages/calendar'
 import Settings from './pages/settings'
 

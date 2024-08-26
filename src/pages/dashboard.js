@@ -1,25 +1,73 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar } from 'primereact/calendar';
+import axios from 'axios';
+import * as XLSX from 'xlsx';
 
-const stats = [
-  // ... (your stats data remains unchanged)
-];
+const Bookings = () => {
+  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [totalRecords, setTotalRecords] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [recordsPerPage] = useState(10);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-const Bookings = [
-  // ... (your Bookings data remains unchanged)
-];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get('http://localhost:5000/form');
+        setData(response.data);
+        setFilteredData(response.data);
+        setTotalRecords(response.data.length);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setError('Failed to fetch bookings. Please try again later.');
+        setLoading(false);
+      }
+    };
 
-const Stats = () => {
-  const [date, setDate] = useState(null);
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    if (selectedDate) {
+      const filtered = data.filter(booking => 
+        new Date(booking.date).toDateString() === selectedDate.toDateString()
+      );
+      setFilteredData(filtered);
+      setTotalRecords(filtered.length);
+      setCurrentPage(1);
+    } else {
+      setFilteredData(data);
+      setTotalRecords(data.length);
+    }
+  }, [selectedDate, data]);
 
   const handleExport = () => {
-    // Implement export functionality here
-    alert('Exporting data...');
+    const worksheet = XLSX.utils.json_to_sheet(filteredData);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Bookings");
+    XLSX.writeFile(workbook, "Bookings.xlsx");
   };
+
+  const handleDateChange = (e) => {
+    setSelectedDate(e.value);
+  };
+
+  const indexOfLastRecord = currentPage * recordsPerPage;
+  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+  const currentRecords = filteredData.slice(indexOfFirstRecord, indexOfLastRecord);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Main content */}
       <div className="flex-grow bg-gray-100">
         <div className="container mx-auto p-4">
           {/* Bookings header */}
@@ -32,9 +80,9 @@ const Stats = () => {
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 onClick={handleExport}
               >
-                Export
+                Export to Excel
               </button>
-              <Calendar value={date} onChange={(e) => setDate(e.value)} placeholder="Select Date" />
+              <Calendar value={selectedDate} onChange={handleDateChange} placeholder="Select Date" />
             </div>
           </div>
 
@@ -51,7 +99,7 @@ const Stats = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {Bookings.map((booking) => (
+                  {currentRecords.map((booking) => (
                     <tr key={booking.id}>
                       <td className="border p-1 text-sm">{booking.id}</td>
                       <td className="border p-1 text-sm">{booking.name}</td>
@@ -61,8 +109,22 @@ const Stats = () => {
                   ))}
                 </tbody>
               </table>
-    
             </div>
+          </div>
+
+          {/* Pagination */}
+          <div className="mt-4 flex justify-center">
+            {Array.from({ length: Math.ceil(totalRecords / recordsPerPage) }, (_, i) => (
+              <button
+                key={i}
+                onClick={() => paginate(i + 1)}
+                className={`mx-1 px-3 py-1 border rounded ${
+                  currentPage === i + 1 ? 'bg-blue-500 text-white' : 'bg-white'
+                }`}
+              >
+                {i + 1}
+              </button>
+            ))}
           </div>
         </div>
       </div>
@@ -70,4 +132,4 @@ const Stats = () => {
   );
 };
 
-export default Stats;
+export default Bookings;
