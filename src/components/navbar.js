@@ -27,7 +27,7 @@ function classNames(...classes) {
 export default function Navbar() {
   return (
     <>
-      div className="min-h-full w-full">
+      <div className="min-h-full w-full">
        <Disclosure as="nav" className="bg-gray-800 w-full">
          <div className="w-full px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
