@@ -42,7 +42,24 @@ const Stats = () => {
           <div className="bg-white p-2 rounded-md shadow-md mt-4 overflow-auto">
             <div className="w-full p-2 rounded-lg border border-gray-300">
               <table className="w-full border-collapse">
-                {/* ... (table content remains unchanged) */}
+                <thead>
+                  <tr>
+                    <th className="border p-4">Booking ID</th>
+                    <th className="border p-4">Name</th>
+                    <th className="border p-4">Date</th>
+                    <th className="border p-4">Route</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Bookings.map((booking) => (
+                    <tr key={booking.id}>
+                      <td className="border p-4">{booking.id}</td>
+                      <td className="border p-4">{booking.name}</td>
+                      <td className="border p-4">{booking.date}</td>
+                      <td className="border p-4">{booking.route}</td>
+                    </tr>
+                  ))}
+                </tbody>
               </table>
             </div>
           </div>
