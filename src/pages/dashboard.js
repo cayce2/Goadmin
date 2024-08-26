@@ -39,24 +39,24 @@ const Stats = () => {
           </div>
 
           {/* Bookings table */}
-          <div className="bg-white p-2 rounded-md shadow-md mt-4 overflow-auto">
+          <div className="bg-white p-2 rounded-md shadow-md mt-8 overflow-auto">
             <div className="w-full p-2 rounded-lg border border-gray-300">
               <table className="w-full border-collapse">
                 <thead>
                   <tr>
-                    <th className="border p-2 text-sm">Booking ID</th>
-                    <th className="border p-2 text-sm">Name</th>
-                    <th className="border p-2 text-sm">Date</th>
-                    <th className="border p-2 text-sm">Route</th>
+                    <th className="border p-1 text-sm">Booking ID</th>
+                    <th className="border p-1 text-sm">Name</th>
+                    <th className="border p-1 text-sm">Date</th>
+                    <th className="border p-1 text-sm">Route</th>
                   </tr>
                 </thead>
                 <tbody>
                   {Bookings.map((booking) => (
                     <tr key={booking.id}>
-                      <td className="border p-2 text-sm">{booking.id}</td>
-                      <td className="border p-2 text-sm">{booking.name}</td>
-                      <td className="border p-2 text-sm">{booking.date}</td>
-                      <td className="border p-2 text-sm">{booking.route}</td>
+                      <td className="border p-1 text-sm">{booking.id}</td>
+                      <td className="border p-1 text-sm">{booking.name}</td>
+                      <td className="border p-1 text-sm">{booking.date}</td>
+                      <td className="border p-1 text-sm">{booking.route}</td>
                     </tr>
                   ))}
                 </tbody>
