@@ -17,7 +17,7 @@ const Bookings = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:5000/api/bookings`);
+        const response = await axios.get('http://localhost:5000/api/bookings');
         setData(response.data);
         setFilteredData(response.data);
         setTotalRecords(response.data.length);
@@ -93,26 +93,34 @@ const Bookings = () => {
                 <thead>
                   <tr>
                     <th className="border p-1 text-sm">Booking ID</th>
-                    <th className="border p-1 text-sm">Name</th>
-                    <th className="border p-1 text-sm">Phone</th>
+                    <th className="border p-1 text-sm">Full Name</th>
+                    <th className="border p-1 text-sm">Employee No</th>
                     <th className="border p-1 text-sm">Date</th>
+                    <th className="border p-1 text-sm">Shift</th>
                     <th className="border p-1 text-sm">Route</th>
+                    <th className="border p-1 text-sm">Destination</th>
+                    <th className="border p-1 text-sm">Estate</th>
+                    <th className="border p-1 text-sm">Phone No</th>
                   </tr>
                 </thead>
                 <tbody>
                   {currentRecords.length > 0 ? (
                     currentRecords.map((booking) => (
-                      <tr key={booking.id}>
-                        <td className="border p-1 text-sm">{booking.id}</td>
-                        <td className="border p-1 text-sm">{booking.name}</td>
-                        <td className="border p-1 text-sm">{booking.phone}</td>
-                        <td className="border p-1 text-sm">{booking.date}</td>
+                      <tr key={booking._id}>
+                        <td className="border p-1 text-sm">{booking._id}</td>
+                        <td className="border p-1 text-sm">{booking.fullName}</td>
+                        <td className="border p-1 text-sm">{booking.employeeNo}</td>
+                        <td className="border p-1 text-sm">{new Date(booking.date).toLocaleDateString()}</td>
+                        <td className="border p-1 text-sm">{booking.shift}</td>
                         <td className="border p-1 text-sm">{booking.route}</td>
+                        <td className="border p-1 text-sm">{booking.destination}</td>
+                        <td className="border p-1 text-sm">{booking.estate}</td>
+                        <td className="border p-1 text-sm">{booking.phoneNo}</td>
                       </tr>
                     ))
                   ) : (
                     <tr>
-                      <td colSpan="5" className="text-center p-4">
+                      <td colSpan="9" className="text-center p-4">
                         No bookings found for the selected date.
                       </td>
                     </tr>
