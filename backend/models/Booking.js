@@ -11,4 +11,4 @@ const BookingSchema = new mongoose.Schema({
   phoneNo: { type: String, required: true }
 });
 
-module.exports = mongoose.model('Booking', BookingSchema);
+module.exports = mongoose.model('Form', BookingSchema);
