@@ -17,7 +17,7 @@ const Bookings = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:5000/form');
+        const response = await axios.get(`http://localhost:5000/api/bookings`);
         setData(response.data);
         setFilteredData(response.data);
         setTotalRecords(response.data.length);

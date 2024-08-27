@@ -24,20 +24,4 @@ router.get('/', async (req, res) => {
   }
 });
 
-// POST a new booking
-router.post('/', async (req, res) => {
-  const booking = new Booking({
-    name: req.body.name,
-    date: req.body.date,
-    route: req.body.route,
-  });
-
-  try {
-    const newBooking = await booking.save();
-    res.status(201).json(newBooking);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
-
 module.exports = router;
