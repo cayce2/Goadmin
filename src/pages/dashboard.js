@@ -34,7 +34,7 @@ const Bookings = () => {
 
   useEffect(() => {
     if (selectedDate) {
-      const filtered = data.filter(booking => 
+      const filtered = data.filter(booking =>
         new Date(booking.date).toDateString() === selectedDate.toDateString()
       );
       setFilteredData(filtered);
@@ -94,19 +94,29 @@ const Bookings = () => {
                   <tr>
                     <th className="border p-1 text-sm">Booking ID</th>
                     <th className="border p-1 text-sm">Name</th>
+                    <th className="border p-1 text-sm">Phone</th>
                     <th className="border p-1 text-sm">Date</th>
                     <th className="border p-1 text-sm">Route</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {currentRecords.map((booking) => (
-                    <tr key={booking.id}>
-                      <td className="border p-1 text-sm">{booking.id}</td>
-                      <td className="border p-1 text-sm">{booking.name}</td>
-                      <td className="border p-1 text-sm">{booking.date}</td>
-                      <td className="border p-1 text-sm">{booking.route}</td>
+                  {currentRecords.length > 0 ? (
+                    currentRecords.map((booking) => (
+                      <tr key={booking.id}>
+                        <td className="border p-1 text-sm">{booking.id}</td>
+                        <td className="border p-1 text-sm">{booking.name}</td>
+                        <td className="border p-1 text-sm">{booking.phone}</td>
+                        <td className="border p-1 text-sm">{booking.date}</td>
+                        <td className="border p-1 text-sm">{booking.route}</td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="5" className="text-center p-4">
+                        No bookings found for the selected date.
+                      </td>
                     </tr>
-                  ))}
+                  )}
                 </tbody>
               </table>
             </div>
