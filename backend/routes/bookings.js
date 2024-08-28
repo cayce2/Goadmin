@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Booking = require('../models/Booking');
+const Form = require('../models/Booking');
 
 // GET all bookings
 router.get('/', async (req, res) => {
@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
       query.date = { $gte: startDate, $lt: endDate };
     }
 
-    const booking = await Booking.find(query);
+    const booking = await Form.find(query);
     res.json(booking);
   } catch (err) {
     res.status(500).json({ message: err.message });
