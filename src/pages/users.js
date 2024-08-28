@@ -55,9 +55,13 @@ const UserTable = () => {
 
   return (
     <div className="container mx-auto">
+      <header className="bg-white shadow">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <h1 className="text-3xl font-bold tracking-tight text-gray-900">Settings</h1>
+            </div>
+          </header>
       <div className="flex flex-col">
         <div className="sticky top-0 bg-white shadow-md z-10 px-4 py-5 border-b border-gray-200">
-          <h1 className="text-xl font-bold text-center">Users</h1>
           <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
             Add user
           </button>

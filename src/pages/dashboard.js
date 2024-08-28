@@ -69,7 +69,7 @@ const Bookings = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="bg-white shadow w-full">
-          <div className="w-full px-4 py-6 sm:px-6 lg:px-8">
+          <div className="w-full px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
           </div>
         </header>
@@ -80,9 +80,6 @@ const Bookings = () => {
         <div className="container mx-auto p-4">
           {/* Bookings header */}
           <div className="flex flex-wrap justify-between items-center bg-white p-2 rounded-md shadow-md mt-4">
-            <div>
-              <h2 className="text-lg font-bold">Bookings</h2>
-            </div>
             <div className="flex items-center space-x-4">
               <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"

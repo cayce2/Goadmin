@@ -73,6 +73,7 @@ const App = () => {
 
   return (
     <div>
+      
       <Header
         current={current}
         onClickPrev={handleClickPrev}
