@@ -52,7 +52,7 @@ export default function Example() {
       </div>
       <div className="flex flex-col flex-grow overflow-y-20">
         <div className="flex flex-col flex-grow mt-5">
-          <nav className="flex-1 px-2 pb-4 space-y-1">
+          <nav className="flex-1 px-2 pb-4 space-y-3">
             {navigation.map((item) => (
               <a
                 key={item.name}
